@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register an Item - ASSERTREGISTER</title>
+    <link rel="stylesheet" href="{% static 'item_register.css' %}"> 
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">ASSERTREGISTER</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'report' %}">Report Stolen</a></li>
+                <li><a href="tel: +260977505531">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Registration Form -->
+    <section class="register">
+        <h2>Register an Item</h2>
+        <p>Secure your valuable items by registering them in our database.</p>
+
+        {% if messages %}
+            <ul class="message-list">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No messages to display.</p>
+        {% endif %}
+        <form action="{% url 'item_register' %}" method="POST">
+            {% csrf_token %}
+            <!-- Item Details -->
+            <label for="item-name">Item Name</label>
+            <input type="text" id="item-name" name="item_name" required>
+
+            <label for="serial-number">Serial Number</label>
+            <input type="text" id="serial-number" name="serial_number" required>
+
+            <label for="brand">Brand</label>
+            <input type="text" id="brand" name="brand" required>
+
+            <label for="model">Model</label>
+            <input type="text" id="model" name="model">
+
+            <label for="color">Color</label>
+            <input type="text" id="color" name="color">
+
+            <!-- Contact Details -->
+            <label for="owner-phone">Owner Phone Number</label>
+            <input type="tel" id="owner-phone" name="owner_phone" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Register Item</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ASSERTREGISTER. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

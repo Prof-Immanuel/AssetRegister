@@ -250,6 +250,10 @@ footer {
     margin-top: 20px;
 }
 
+.nav-links.active {
+    display: flex;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     /* Header */
@@ -273,6 +277,7 @@ footer {
         width: 100%;
         text-align: center;
         padding: 10px 0;
+        z-index: 4; 
     }
 
     .nav-links li {

@@ -17,6 +17,12 @@
             <ul class="nav-links">
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'report' %}">Report Stolen</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'signup' %}">Signup or Login</a></li>
+                {% endif %}
                 <li><a href="tel: +260977505531">Contact</a></li>
             </ul>
             <div class="menu-toggle">&#9776;</div> <!-- Hamburger Icon -->
@@ -28,7 +34,7 @@
         <div class="hero-content">
             <h1>Recover Stolen Items Easily</h1>
             <p>Verify serial numbers and report missing assets in seconds.</p>
-            <a href="{% url 'report' %}" class="btn">Report Stolen Item</a>
+            <a href="{% url 'item_register' %}" class="btn">Register an Item</a>
         </div>
     </section>
 

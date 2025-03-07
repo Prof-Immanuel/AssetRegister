@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh"]
 
+AUTH_USER_MODEL = 'core.CustomUser'
+
 
 # Application definition
 
